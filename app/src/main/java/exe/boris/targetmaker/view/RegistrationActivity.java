@@ -59,25 +59,24 @@ public class RegistrationActivity extends RoboActivity implements RegistrationVi
             presenter.validateRegistration(un, eMail, pass, passConf);
     }
 
-
     @Override
     public void setUsernameError() {
-        username.setError("");
+        username.setError(getString(R.string.username_error));
     }
 
     @Override
     public void setEmailError() {
-        email.setError("");
+        email.setError(getString(R.string.email_error));
     }
 
     @Override
     public void setPasswordError() {
-        password.setError("");
+        password.setError(getString(R.string.password_error));
     }
 
     @Override
     public void setConfirmPassError() {
-        passConfirm.setError("");
+        passConfirm.setError(getString(R.string.confPassword_error));
     }
 
     @Override
@@ -100,5 +99,10 @@ public class RegistrationActivity extends RoboActivity implements RegistrationVi
     @Override
     public void setNetworkConnectionError() {
         Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void setConfirmPassErr() {
+        passConfirm.setError(getString(R.string.confPassword_err));
     }
 }

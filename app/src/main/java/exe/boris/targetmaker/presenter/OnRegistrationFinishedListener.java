@@ -10,6 +10,7 @@ public interface OnRegistrationFinishedListener {
     public void onEmailError();
     public void onPasswordError();
     public void onConfirmPassError();
+    public void onConfirmPassErr();
     public void onSuccess();
     public Context getContext();
     public void onNetworkConnectionError();

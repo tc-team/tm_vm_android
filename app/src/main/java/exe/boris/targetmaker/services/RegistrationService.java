@@ -45,7 +45,7 @@ public class RegistrationService {
         }
         if (!password.equals(confPassword)) {
             error = true;
-            listener.onConfirmPassError();
+            listener.onConfirmPassErr();
         }
         if (!NetworkInformation.checkInternetConnection(listener.getContext())) {
             error = true;

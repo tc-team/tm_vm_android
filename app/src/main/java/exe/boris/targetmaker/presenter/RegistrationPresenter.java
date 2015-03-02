@@ -67,4 +67,9 @@ public class RegistrationPresenter implements OnRegistrationFinishedListener {
     public void onNetworkConnectionError() {
         registrationView.setNetworkConnectionError();
     }
+
+    @Override
+    public void onConfirmPassErr() {
+        registrationView.setConfirmPassErr();
+    }
 }

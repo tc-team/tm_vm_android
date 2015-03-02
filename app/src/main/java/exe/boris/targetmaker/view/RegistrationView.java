@@ -14,4 +14,5 @@ public interface RegistrationView {
     public void showToast();
     public Context getCurrentContext();
     public void setNetworkConnectionError();
+    public void setConfirmPassErr();
 }

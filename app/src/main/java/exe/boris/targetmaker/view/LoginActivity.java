@@ -54,12 +54,12 @@ public class LoginActivity extends RoboActivity implements LoginView {
 
     @Override
     public void setUsernameError() {
-        username.setError("");
+        username.setError(getString(R.string.username_error));
     }
 
     @Override
     public void setPasswordError() {
-        password.setError("");
+        password.setError(getString(R.string.password_error));
     }
 
     @Override

@@ -11,6 +11,11 @@
     <string name="email">user@example.com</string>
     <string name="pass_confirm">Password Confirmation</string>
     <string name="register_text">Register</string>
+    <string name="username_error">Username cannot be empty</string>
+    <string name="password_error">Password cannot be empty</string>
+    <string name="email_error">Email cannot be empty</string>
+    <string name="confPassword_error">Password confirmation cannot be empty</string>
+    <string name="confPassword_err">Password confirmation does not match the password</string>
     <string-array name="tabs">
         <item>Map</item>
         <item>Audio</item>
