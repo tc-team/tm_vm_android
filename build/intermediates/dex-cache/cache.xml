@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/boris/AndroidStudioProjects/tm_vm_android/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/home/boris/AndroidStudioProjects/tm_vm_android/app/build/intermediates/pre-dexed/debug/classes-ae0d63278e3e81c0b9fa2fb16ce52068f9cceede.jar" />
+    </item>
+    <item
+        jar="/home/boris/AndroidStudioProjects/tm_vm_android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/home/boris/AndroidStudioProjects/tm_vm_android/app/build/intermediates/pre-dexed/debug/classes-aae646bfff1db3add7e869d679adadda11af1221.jar" />
+    </item>
+    <item
+        jar="/home/boris/AndroidStudioProjects/tm_vm_android/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/home/boris/AndroidStudioProjects/tm_vm_android/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-48bfff5c774b006bba6b21fd2afc537362e3433e.jar" />
+    </item>
+    <item
+        jar="/home/boris/.gradle/caches/modules-2/files-2.1/org.roboguice/roboguice/3.0.1/24e814f35d5cc28eaa7e9f07a50ea69deeb2b544/roboguice-3.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="24e814f35d5cc28eaa7e9f07a50ea69deeb2b544">
+        <dex dex="/home/boris/AndroidStudioProjects/tm_vm_android/app/build/intermediates/pre-dexed/debug/roboguice-3.0.1-3872558a54c9ba69a9ca2b09687561cca96790f2.jar" />
+    </item>
+    <item
+        jar="/home/boris/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/home/boris/AndroidStudioProjects/tm_vm_android/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-8dc3a21c0f21b40f6c4c42f690ac423befc690c8.jar" />
+    </item>
+
+</items>

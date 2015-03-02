@@ -17,6 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import exe.boris.targetmaker.R;
+import exe.boris.targetmaker.presenter.LoginPresenter;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
@@ -25,90 +26,49 @@ import roboguice.inject.InjectView;
  * Created by boris on 02.02.15.
  */
 @ContentView(R.layout.login_form)
-public class LoginActivity extends RoboActivity {
+public class LoginActivity extends RoboActivity implements LoginView {
 
     @InjectView(R.id.username_log) TextView username;
     @InjectView(R.id.pass_log) TextView password;
+    LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        presenter = new LoginPresenter(this);
     }
 
     public void loginBtnHandler(View view) throws FileNotFoundException, JSONException {
-        if (isFieldsFilled() && isFieldsValid()) {
+        /*if (isFieldsFilled() && isFieldsValid()) {
             String un = username.getText().toString();
             String pass = password.getText().toString();
             String date = CurrentDate.createCurrentDate();
             Log.v("now", date);
-            //UserLogin userLogin = new UserLogin();
-            //userLogin.execute();
-            startActivity(new Intent(this, MainActivity.class));
-        }
-
-    }
-
-    public boolean isFieldsValid() throws FileNotFoundException, JSONException {
-        JSONObject jsonObject = new Reader().readFromFile();
-        if ((username.getText().toString().compareTo(getUserNameFromJSON(jsonObject))) != 0) {
-            return false;
-        }
-        if ((password.getText().toString().compareTo(getPasswordFromJSON(jsonObject))) != 0) {
-            return false;
-        }
-        return true;
-    }
-
-    public boolean isFieldsFilled() {
-        if (username.getText().toString().length() == 0) {
-            username.requestFocus();
-            return false;
-        }
-
-        if (password.getText().length() == 0) {
-            password.requestFocus();
-            return false;
-        }
-        return true;
+            startActivity(new Intent(this, MainActivity.class));*/
+            //presenter.validateLogin(un, pass);
     }
 
     public void startRegistrationForm(View v) {
+        presenter.onStartActivity();
+    }
+
+    @Override
+    public void setUsernameError() {
+        username.setError("");
+    }
+
+    @Override
+    public void setPasswordError() {
+        password.setError("");
+    }
+
+    @Override
+    public void navigateToMainActivity() {
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    @Override
+    public void navigateToRegistrationActivity() {
         startActivity(new Intent(this, RegistrationActivity.class));
-    }
-
-    public String getUserNameFromJSON(JSONObject jsonObject) throws JSONException {
-        return jsonObject.getString("username");
-    }
-
-    public String getPasswordFromJSON(JSONObject jsonObject) throws JSONException {
-        return jsonObject.getString("password");
-    }
-
-    public class Reader {
-
-        String fileName = "registration.txt";
-
-        protected JSONObject readFromFile() throws FileNotFoundException {
-            File sdCard = Environment.getExternalStorageDirectory();
-            File dir = new File(sdCard.getAbsolutePath(), "/");
-            File file = new File(dir, fileName);
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String line;
-            StringBuilder stringBuilder = new StringBuilder();
-            JSONObject jsonObject = null;
-            try {
-                while ((line = br.readLine()) != null) {
-                    stringBuilder.append(line);
-                    stringBuilder.append("/n");
-                }
-                br.close();
-                jsonObject = new JSONObject(stringBuilder.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jsonObject;
-        }
     }
 }
