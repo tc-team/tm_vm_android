@@ -19,6 +19,7 @@ import java.io.IOException;
 
 import exe.boris.targetmaker.presenter.OnLoginFinishedListener;
 import exe.boris.targetmaker.presenter.OnRegistrationFinishedListener;
+import exe.boris.targetmaker.view.NetworkInformation;
 
 public class RegistrationService {
 
@@ -46,12 +47,16 @@ public class RegistrationService {
             error = true;
             listener.onConfirmPassError();
         }
+        if (!NetworkInformation.checkInternetConnection(listener.getContext())) {
+            error = true;
+            listener.onNetworkConnectionError();
+        }
         if (!error) {
-            HttpClient client = new DefaultHttpClient();
+            /*HttpClient client = new DefaultHttpClient();
             HttpPost post = new HttpPost(url);
             StringEntity stringEntity = new StringEntity(createJSONObject(username, email, password).toString());
             post.setEntity(stringEntity);
-            HttpResponse response = client.execute(post);
+            HttpResponse response = client.execute(post);*/
             listener.onSuccess();
         }
     }

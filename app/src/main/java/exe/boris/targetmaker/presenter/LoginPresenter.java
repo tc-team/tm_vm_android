@@ -1,5 +1,6 @@
 package exe.boris.targetmaker.presenter;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.google.inject.Inject;
@@ -52,5 +53,15 @@ public class LoginPresenter implements OnLoginFinishedListener {
     @Override
     public void onStartActivity() {
         loginView.navigateToRegistrationActivity();
+    }
+
+    @Override
+    public Context getContext() {
+        return loginView.getCurrentContext();
+    }
+
+    @Override
+    public void onNetworkConnectionError() {
+        loginView.setNetworkConnectionError();
     }
 }

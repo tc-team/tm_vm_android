@@ -1,5 +1,6 @@
 package exe.boris.targetmaker.services;
 
+import android.app.Application;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 
@@ -14,6 +15,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 import exe.boris.targetmaker.presenter.OnLoginFinishedListener;
+import exe.boris.targetmaker.view.NetworkInformation;
 
 /**
  * Created by boris on 19.02.15.
@@ -23,7 +25,7 @@ import exe.boris.targetmaker.presenter.OnLoginFinishedListener;
     private static String url = " ";
 
         public void login(String username, String password, OnLoginFinishedListener listener) throws IOException, JSONException {
-            boolean error = true;
+            boolean error = false;
             if (TextUtils.isEmpty(username)) {
                 error = true;
                 listener.onUsernameError();
@@ -32,12 +34,16 @@ import exe.boris.targetmaker.presenter.OnLoginFinishedListener;
                 error = true;
                 listener.onPasswordError();
             }
+            if (!NetworkInformation.checkInternetConnection(listener.getContext())) {
+                error = true;
+                listener.onNetworkConnectionError();
+            }
             if (!error) {
-                HttpClient client = new DefaultHttpClient();
+                /*HttpClient client = new DefaultHttpClient();
                 HttpPost post = new HttpPost(url);
                 StringEntity se = new StringEntity(createJSONObject(username, password).toString());
                 post.setEntity(se);
-                HttpResponse response = client.execute(post);
+                HttpResponse response = client.execute(post);*/
                 listener.onSucces();
             }
         }

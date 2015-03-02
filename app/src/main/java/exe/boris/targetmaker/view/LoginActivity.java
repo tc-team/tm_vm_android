@@ -1,11 +1,13 @@
 package exe.boris.targetmaker.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,13 +41,11 @@ public class LoginActivity extends RoboActivity implements LoginView {
     }
 
     public void loginBtnHandler(View view) throws FileNotFoundException, JSONException {
-        /*if (isFieldsFilled() && isFieldsValid()) {
             String un = username.getText().toString();
             String pass = password.getText().toString();
-            String date = CurrentDate.createCurrentDate();
-            Log.v("now", date);
-            startActivity(new Intent(this, MainActivity.class));*/
-            //presenter.validateLogin(un, pass);
+            //String date = CurrentDate.createCurrentDate();
+            //Log.v("now", date);
+            presenter.validateLogin(un, pass);
     }
 
     public void startRegistrationForm(View v) {
@@ -70,5 +70,15 @@ public class LoginActivity extends RoboActivity implements LoginView {
     @Override
     public void navigateToRegistrationActivity() {
         startActivity(new Intent(this, RegistrationActivity.class));
+    }
+
+    @Override
+    public Context getCurrentContext() {
+        return getApplicationContext();
+    }
+
+    @Override
+    public void setNetworkConnectionError() {
+        Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
     }
 }

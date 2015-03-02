@@ -1,5 +1,7 @@
 package exe.boris.targetmaker.presenter;
 
+import android.content.Context;
+
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -56,5 +58,13 @@ public class RegistrationPresenter implements OnRegistrationFinishedListener {
         registrationView.showToast();
     }
 
+    @Override
+    public Context getContext() {
+        return registrationView.getCurrentContext();
+    }
 
+    @Override
+    public void onNetworkConnectionError() {
+        registrationView.setNetworkConnectionError();
+    }
 }

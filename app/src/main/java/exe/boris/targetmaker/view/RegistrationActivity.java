@@ -1,5 +1,6 @@
 package exe.boris.targetmaker.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -48,14 +49,14 @@ public class RegistrationActivity extends RoboActivity implements RegistrationVi
    }
 
     public void registrationBtnHandler(View v) throws JSONException {
-            /*String un = username.getText().toString();
+            String un = username.getText().toString();
             String eMail = email.getText().toString();
             String pass = password.getText().toString();
             String passConf = passConfirm.getText().toString();
-            Writer writer = new Writer();
-            writer.execute(un, eMail, pass);
-            startActivity(new Intent(this, LoginActivity.class));*/
-            //presenter.validateRegistration(un, eMail, pass, passConf);
+            //Writer writer = new Writer();
+            //writer.execute(un, eMail, pass);
+            //startActivity(new Intent(this, LoginActivity.class));*/
+            presenter.validateRegistration(un, eMail, pass, passConf);
     }
 
 
@@ -91,4 +92,13 @@ public class RegistrationActivity extends RoboActivity implements RegistrationVi
         startActivity(new Intent(this, LoginActivity.class));
     }
 
+    @Override
+    public Context getCurrentContext() {
+        return getApplicationContext();
+    }
+
+    @Override
+    public void setNetworkConnectionError() {
+        Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+    }
 }
