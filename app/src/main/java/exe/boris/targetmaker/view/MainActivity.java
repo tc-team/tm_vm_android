@@ -1,6 +1,7 @@
 package exe.boris.targetmaker.view;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
@@ -21,11 +22,11 @@ public class MainActivity extends RoboActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setSupportActionBar(toolBar);
-        pager.setAdapter(new MyPagerAdapter(getApplicationContext()));
-        slidingTabLayout.setDistributeEvenly(true);
+        pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(),getApplicationContext()));        slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setBackgroundColor(getResources().getColor(R.color.primary));
         slidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.text_secondary));
         slidingTabLayout.setViewPager(pager);
+
     }
 
     @Override

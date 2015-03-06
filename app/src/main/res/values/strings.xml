@@ -20,4 +20,5 @@
         <item>Map</item>
         <item>Audio</item>
     </string-array>
+    <string name="title_activity_activity_example">ActivityExample</string>
 </resources>

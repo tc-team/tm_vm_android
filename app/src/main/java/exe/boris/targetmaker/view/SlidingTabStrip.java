@@ -1,4 +1,3 @@
-package exe.boris.targetmaker.view;
 /*
  * Copyright 2014 Google Inc. All rights reserved.
  *
@@ -15,15 +14,17 @@ package exe.boris.targetmaker.view;
  * limitations under the License.
  */
 
-        import android.R;
-        import android.content.Context;
-        import android.graphics.Canvas;
-        import android.graphics.Color;
-        import android.graphics.Paint;
-        import android.util.AttributeSet;
-        import android.util.TypedValue;
-        import android.view.View;
-        import android.widget.LinearLayout;
+package exe.boris.targetmaker.view;
+
+import android.R;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.View;
+import android.widget.LinearLayout;
 
 class SlidingTabStrip extends LinearLayout {
 

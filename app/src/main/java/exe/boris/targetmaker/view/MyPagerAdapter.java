@@ -1,25 +1,32 @@
 package exe.boris.targetmaker.view;
 
+import android.app.FragmentManager;
 import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.gms.maps.MapFragment;
 
 import exe.boris.targetmaker.R;
 
 /**
  * Created by boris on 23.02.15.
  */
-public class MyPagerAdapter extends PagerAdapter {
+public class MyPagerAdapter extends FragmentPagerAdapter {
 
     String[] tabs;
     Context context;
 
-    public MyPagerAdapter(Context c) {
+    public MyPagerAdapter(android.support.v4.app.FragmentManager fm, Context c) {
+        super(fm);
         context = c;
         tabs = c.getResources().getStringArray(R.array.tabs);
     }
+
 
     @Override
     public CharSequence getPageTitle(int position) {
@@ -32,27 +39,16 @@ public class MyPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
-        View view = null;
+    public Fragment getItem(int position) {
+        Fragment fragment = null;
         switch (position) {
             case 0:
-                view = inflater.inflate(R.layout.audio_fragment, container, false);
-                container.addView(view);
+                fragment = new Map();
+                break;
             case 1:
-                view = inflater.inflate(R.layout.map_fragment, container, false);
-                container.addView(view);
+                fragment = new Audio();
+                break;
         }
-        return view;
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((View) object);
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return object == view;
+        return fragment;
     }
 }
